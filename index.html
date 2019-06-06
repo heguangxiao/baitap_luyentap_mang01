@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" id="btap1" value="Bai Tap 1 !" onclick="btap1();"/><br/>
+    <input type="button" id="btap2" value="Bai Tap 2 !" onclick="btap2();"/><br/>
+    <input type="button" id="btap3" value="Bai Tap 3 !" onclick="btap3();"/><br/>
+    <input type="button" id="btap4" value="Bai Tap 4 !" onclick="btap4();"/><br/>
+    <input type="button" id="btap5" value="Bai Tap 5 !" onclick="btap5();"/><br/>
+    <input type="button" id="btap6" value="Bai Tap 6 !" onclick="btap6();"/><br/>
+    <input type="button" id="btap7" value="Bai Tap 7 !" onclick="btap7();"/><br/>
+    <input type="button" id="btap8" value="Bai Tap 8 !" onclick="btap8();"/><br/>
+    <input type="button" id="btap9" value="Bai Tap 9 !" onclick="btap9();"/><br/>
+
+    <div id="showMessage"></div>
+
+    <script>
+
+        let showMessageDiv = document.getElementById('showMessage');
+        
+        function btap9() {
+            let arrBtap9_1 =[];
+            let arrBtap9_2 =[];
+            let arrBtap9_3 =[];
+
+            for (i = 0; i < 10; i++) {
+                let num=parseInt(prompt(),0);
+                arrBtap9_1.push(num);
+            }
+
+            for (i = 0; i < 10; i++) {
+                let num=parseInt(prompt(),0);
+                arrBtap9_2.push(num);
+            }
+
+            arrBtap9_3 = arrBtap9_1.concat(arrBtap9_2);
+
+            showMessageDiv.innerHTML = arrBtap9_1 +'<br>'+arrBtap9_2+'<br>'+arrBtap9_3;
+        }
+        
+        function btap8() {
+            let arrBtap8 = [];
+
+            for (i = 0; i < 10; i++) {
+                let num = parseInt(prompt(),0);
+                arrBtap8.push(num);
+            }
+
+            arrBtap8.sort(function (a, b) {
+                return a - b;
+            })
+
+            showMessageDiv.innerHTML = arrBtap8.join('-');
+        }
+        
+        function btap7() {
+            let arrBtap7 = [];
+            let flag = 0;
+            
+            for (i=0;i<10;i++){
+                let num = parseInt(prompt(),0);
+                arrBtap7.push(num);
+            }
+            let messageDiv = arrBtap7.join('-');
+
+            let numV = parseInt(prompt(),0);
+
+            flag = arrBtap7.some(element => element === numV);
+
+            if (flag){
+                for (x = 0; x < arrBtap7.length; x++) {
+                    if(numV === arrBtap7[x]){
+                        for (j = 0;j<arrBtap7.length-(x+1);j++){
+                           arrBtap7[x+j] = arrBtap7[x+j+1];
+                        }
+                        arrBtap7[arrBtap7.length-1] = 0;
+                        showMessageDiv.innerHTML = messageDiv+'<br>'+arrBtap7.join('-');
+                        break;
+                    }
+                }
+
+            } else {
+                showMessageDiv.innerHTML = 'V is not in the array';
+            }
+            
+        }
+
+        function btap6() {
+            let arrBtap6 = [];
+            let flag = false;
+
+            for (i = 0;i<10;i++){
+                let num = parseInt(prompt(),0);
+                arrBtap6.push(num);
+            }
+
+            let numV = parseInt(prompt(),0);
+
+            flag = arrBtap6.some(element => element === numV);
+
+            if (flag){
+                showMessageDiv.innerHTML = 'V is in the array';
+            } else {
+                showMessageDiv.innerHTML = 'V is not in the array';
+            }
+
+
+        }
+
+        function btap5() {
+            let arrBtap5 = [];
+            let demso = 0;
+            let numArr = parseInt(prompt(),0);
+
+            for (i = 0;i < numArr;i++){
+                let num = parseInt(prompt(),0);
+                arrBtap5.push(num);
+            }
+
+            for (x = 0;x < arrBtap5.length;x++){
+                if (arrBtap5[x]<0){
+                    demso = demso + 1;
+                }
+            }
+
+            showMessageDiv.innerText = 'Trong day '+arrBtap5+' co '+demso+' so nguyen am';
+
+        }
+
+        function btap1() {
+            let arrayBtap1 = [];
+            let showArray = [];
+            let demso = 0;
+
+            for (i=0;i<10;i++){
+                let nums = prompt();
+                arrayBtap1.push(nums);
+            }
+
+            for (x=0;x<arrayBtap1.length;x++){
+                if(parseInt(arrayBtap1[x])>=10){
+                    showArray.push(arrayBtap1[x].toString());
+                    demso++;
+                }
+            }
+
+            showMessageDiv.innerHTML = 'Trong day : '+arrayBtap1+' co '+demso+' so lon hon hoac bang 10 : '+showArray;
+        }
+
+        function btap2() {
+            let arrayBtap2 = [];
+            let showArray = 0;
+            let demso = 0;
+
+            for (i=0;i<10;i++){
+                let nums = prompt();
+                arrayBtap2.push(nums);
+            }
+
+            for (x=0;x<arrayBtap2.length;x++){
+                if(parseInt(arrayBtap2[x]) > showArray){
+                    showArray = parseInt(arrayBtap2[x]);
+                    demso = x+1;
+                }
+            }
+
+            showMessageDiv.innerHTML = 'Trong day : '+arrayBtap2+' co so '+showArray+' la so lon nhat va no dung thu '+demso+' trong day .';
+        }
+
+        function btap3() {
+            let arrayBtap2 = [];
+            let showArray = 0;
+            let demso = 0;
+            let trungbinh = 0;
+
+            let numberArray = parseInt(prompt());
+
+            for (i=0;i<numberArray;i++){
+                let nums = prompt();
+                arrayBtap2.push(parseInt(nums));
+            }
+
+            for (x=0;x<arrayBtap2.length;x++){
+                if(parseInt(arrayBtap2[x]) > showArray){
+                    showArray = parseInt(arrayBtap2[x]);
+                }
+                demso = demso + parseInt(arrayBtap2[x]);
+            }
+            trungbinh = demso / arrayBtap2.length;
+
+            showMessageDiv.innerHTML = 'Trong day : '+arrayBtap2+' co so '+showArray+' la so lon nhat va gia tri trung binh cua ca day la '+trungbinh;
+        }
+
+        function btap4() {
+            let arrBtap4 = [];
+            let numArray = parseInt(prompt());
+            let arrDaoNguoc;
+            let showMessage;
+
+            for (i=0;i<numArray;i++){
+                let nums = parseInt(prompt());
+                arrBtap4.push(nums);
+            }
+
+            showMessage = 'day so ban dau : ' + arrBtap4.join('--') + '<br>';
+            arrDaoNguoc = arrBtap4.reverse();
+            showMessage += '<br>' + 'day so sau khi dao : ' + arrDaoNguoc.join('--');
+
+            showMessageDiv.innerHTML = showMessage;
+
+        }
+
+    </script>
+</body>
+</html>
